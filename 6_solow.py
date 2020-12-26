@@ -31,7 +31,7 @@ A0 = Y0/((K0**alpha)*(N0**(1-alpha)))
 # initialize time series
 # compute initial capital-to-labor ratio
 K_N = np.zeros(T)        # capital-to-labor ratio
-N = np.zeros(T)          
+N = np.zeros(T)
 K_N[0] = K0/N0
 N[0] = N0
 A = np.ones(T)*A0        # Solow residuals not changed
@@ -101,7 +101,7 @@ if len(kk_ss) == 2:
     kk_ss = kk_ss[1]
     inflow_ss = inflow[kk_ss]
     output_pc_ss = output_pc[kk_ss]
-    
+
     ax.vlines(kk_ss, 0, output_pc_ss, linestyles = 'dotted', colors = 'black')
     ax.hlines(inflow_ss, 0, kk_ss, linestyles = 'dotted', colors = 'black')
     ax.hlines(output_pc_ss, 0, kk_ss, linestyles = 'dotted', colors = 'black')
@@ -111,6 +111,7 @@ ax.legend()
 ax.set_xlabel(r'$k$')
 ax.set_ylabel('values')
 ax.set_title('solow diagram 1')
+plt.show()
 
 
 motion = r'$k_{t+1}=\frac{(1-\delta)}{1+n} \times k_{t} + \frac{s \times A}{1+n} \times k_{t}^\alpha $'
@@ -129,6 +130,7 @@ ax.legend(prop={'size': 15})
 ax.set_xlabel(r'$k_{t}$')
 ax.set_ylabel(r'$k_{t+1}$')
 ax.set_title('solow diagram 2')
+plt.show()
 
 
 fig2, ax = plt.subplots(figsize = (10,6), dpi = 300)
@@ -139,6 +141,8 @@ ax.set_title('simulated path of the capital-to-labor ratio')
 plt.hlines(K_N_ss, min(year), max(year), colors='red', linestyles='--',label = 'steady state')
 plt.xticks(year[::10])
 ax.legend(loc = 4)
+plt.show()
+
 
 fig3, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year, Y_N)
@@ -148,6 +152,8 @@ ax.set_title('simulated time path of real GDP per worker')
 plt.hlines(Y_N_ss, min(year), max(year), colors='red', linestyles='--',label = 'steady state')
 plt.xticks(year[::10])
 ax.legend(loc = 4)
+plt.show()
+
 
 fig4, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year, wages)
@@ -157,6 +163,8 @@ ax.set_title('simulated time path of real wage')
 plt.hlines(wage_ss, min(year), max(year), colors='red', linestyles='--',label = 'steady state')
 plt.xticks(year[::10])
 ax.legend(loc = 4)
+plt.show()
+
 
 fig5, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year, rental_rate)
@@ -166,6 +174,8 @@ ax.set_title('simulated time path of real rental rate')
 plt.hlines(rent_ss, min(year), max(year), colors='red', linestyles='--',label = 'steady state')
 plt.xticks(year[::10])
 ax.legend(loc = 1)
+plt.show()
+
 
 fig6, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year, Y)
@@ -175,6 +185,8 @@ ax.set_ylabel('output')
 ax.set_title('simulated time path of real GDP')
 plt.xticks(year[::10])
 ax.legend(loc = 0)
+plt.show()
+
 
 fig7, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year, K)
@@ -184,6 +196,8 @@ ax.set_ylabel('capital')
 ax.set_title('simulated time path of capital stock')
 plt.xticks(year[::10])
 ax.legend(loc = 0)
+plt.show()
+
 
 fig8, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year, np.log(Y))
@@ -193,6 +207,8 @@ ax.set_ylabel('log output')
 ax.set_title('simulated time path of log real GDP')
 plt.xticks(year[::10])
 ax.legend(loc = 0)
+plt.show()
+
 
 fig9, ax = plt.subplots(figsize = (10,6), dpi = 300)
 ax.plot(year[1:], Y_growth * 100)
@@ -203,5 +219,4 @@ ax.set_title('simulated time path of real GDP growth')
 plt.hlines(0, min(year), max(year), colors='black')
 plt.xticks(year[::10])
 ax.legend(loc = 0)
-
-
+plt.show()
